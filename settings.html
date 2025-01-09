@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Focusly Settings</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="setting-group">
+    <h3>Website Time Limits</h3>
+    <div id="limitsList"></div>
+    <div class="site-limit">
+      <input type="text" id="newSite" placeholder="website.com" class="number-input" pattern="^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}$">
+      <input type="number" id="newLimit" placeholder="Minutes" class="number-input" min="1" max="1440">
+      <button id="addLimitBtn" class="btn">Add Limit</button>
+    </div>
+  </div>
+  
+  <div class="setting-group">
+    <h3>Break Reminders</h3>
+    <div class="setting-row">
+      <label class="switch">
+        <input type="checkbox" id="breakReminders">
+        <span class="slider"></span>
+      </label>
+      <span>Enable break reminders</span>
+    </div>
+    <div class="setting-row">
+      <label>Remind after</label>
+      <input type="number" id="breakInterval" value="30" min="5" max="120" class="number-input">
+      <span>minutes of continuous browsing</span>
+    </div>
+  </div>
+
+  <div class="setting-group">
+    <h3>Productivity Categories</h3>
+    
+    <div class="category-section">
+      <h4>Productive Sites</h4>
+      <div id="productiveList" class="site-list"></div>
+      <div class="site-input">
+        <input type="text" id="productiveSite" placeholder="website.com">
+        <button id="addProductiveSite" class="btn">Add Site</button>
+      </div>
+    </div>
+  
+    <div class="category-section">
+      <h4>Neutral Sites</h4>
+      <div id="neutralList" class="site-list"></div>
+      <div class="site-input">
+        <input type="text" id="neutralSite" placeholder="website.com">
+        <button id="addNeutralSite" class="btn">Add Site</button>
+      </div>
+    </div>
+  
+    <div class="category-section">
+      <h4>Distracting Sites</h4>
+      <div id="distractingList" class="site-list"></div>
+      <div class="site-input">
+        <input type="text" id="distractingSite" placeholder="website.com">
+        <button id="addDistractingSite" class="btn">Add Site</button>
+      </div>
+    </div>
+  </div>
+  
+  <button id="saveBtn" class="btn primary">Save Settings</button>
+
+  <div class="save-notification" hidden>Settings saved!</div>
+  <script src="bundle.js"></script>
+</body>
+</html>

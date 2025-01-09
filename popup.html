@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Focusly</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="header">
+    <img src="images/icon128.png" alt="Focusly" class="logo">
+    <h1 class="title">Focusly</h1>
+    <button class="btn export-btn" id="exportBtn">Export CSV</button>
+    <button id="openOptionsBtn" class="btn secondary options-btn">
+      Settings
+    </button>
+  </div>
+  <div class="time-filter">
+    <button class="active" data-period="day">Today</button>
+    <button data-period="week">Week</button>
+    <button data-period="month">Month</button>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-value" id="totalTime">0h</div>
+      <div class="stat-label">Total Browsing Time</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="topSite">-</div>
+      <div class="stat-label">Most Visited</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="siteCount">0</div>
+      <div class="stat-label">Sites Visited</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="productivity">0%</div>
+      <div class="stat-label">Productivity Score</div>
+    </div>
+      
+  </div>
+
+  <div class="chart-card">
+    <div class="card-header">
+      <h3>Top Sites</h3>
+      <div class="view-toggle">
+        <button class="active" data-view="chart">Chart</button>
+        <button data-view="list">List</button>
+        
+      </div>
+    </div>
+    <div class="chart-wrapper" id="chartView">
+      <canvas id="browsingChart"></canvas>
+    </div>
+    <div class="list-wrapper hidden" id="listView">
+      <table class="summary-table" id="summaryTable">
+        <thead>
+          <tr>
+            <th>Website</th>
+            <th>Time</th>
+            <th>% of Total</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <button class="btn secondary view-all-btn" onclick="showDetailedView()">
+        View All Sites
+      </button>
+    </div>
+  </div>
+
+  <div class="modal" id="detailedModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>All Sites</h3>
+        <button class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="filters">
+          <input type="text" placeholder="Search sites..." class="search-input">
+          <select class="time-filter">
+            <option value="all">All Time</option>
+            <option value="1m">Above 1 minute</option>
+            <option value="5m">Above 5 minutes</option>
+            <option value="30m">Above 30 minutes</option>
+          </select>
+        </div>
+        <table class="detailed-table">
+          <thead>
+            <tr>
+              <th>Website</th>
+              <th>Time</th>
+              <th>% of Total</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="chart.min.js"></script>
+  <script src="bundle.js"></script>
+</body>
+</html>
